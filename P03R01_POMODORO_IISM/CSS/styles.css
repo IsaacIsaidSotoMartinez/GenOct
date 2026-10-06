@@ -1,0 +1,457 @@
+* {
+    /* Seleccionamos absolutamente todos los elementos. */
+
+    box-sizing: border-box;
+    /* Hace que padding y border se incluyan dentro del tamaño del elemento. */
+
+}
+
+body {
+    /* Estilos generales de toda la página. */
+
+    margin: 0;
+    /* Eliminamos el margen que el navegador agrega automáticamente. */
+
+    min-height: 100vh;
+    /* Hacemos que el body ocupe como mínimo toda la altura de la pantalla. */
+
+    font-family: Arial, Helvetica, sans-serif;
+    /* Elegimos una fuente sencilla y disponible en prácticamente cualquier computadora. */
+
+    background: #f5f5f5;
+    /* Establecemos un fondo gris muy claro. */
+
+    color: #333;
+    /* Definimos el color principal del texto. */
+
+}
+
+.app {
+    /* Contenedor principal de nuestra aplicación. */
+
+    width: min(700px, 92%);
+    /* La aplicación tendrá como máximo 700px y ocupará el 92% en pantallas pequeñas. */
+
+    margin: 0 auto;
+    /* Centramos horizontalmente la aplicación. */
+
+    padding: 30px 0 60px;
+    /* Agregamos espacio arriba y abajo. */
+
+}
+
+.header {
+    /* Estilos de la cabecera. */
+
+    display: flex;
+    /* Activamos Flexbox. */
+
+    justify-content: space-between;
+    /* Separamos el título y el botón hacia los extremos. */
+
+    align-items: center;
+    /* Alineamos verticalmente los elementos. */
+
+    margin-bottom: 20px;
+    /* Dejamos espacio debajo de la cabecera. */
+
+}
+
+.header h1 {
+    /* Estilos específicos del título. */
+
+    margin: 0;
+    /* Eliminamos el margen predeterminado del h1. */
+
+    font-size: 24px;
+    /* Definimos el tamaño del título. */
+
+}
+
+.icon-button {
+    /* Estilos del botón de configuración. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: transparent;
+    /* Hacemos transparente el fondo. */
+
+    font-size: 24px;
+    /* Aumentamos el tamaño del icono. */
+
+    cursor: pointer;
+    /* Cambiamos el cursor para indicar que es clickeable. */
+
+}
+
+.timer-card {
+    /* Tarjeta que contiene el temporizador. */
+
+    background: #ba4949;
+    /* Utilizamos un rojo similar al utilizado por aplicaciones Pomodoro. */
+
+    color: white;
+    /* El texto será blanco. */
+
+    border-radius: 12px;
+    /* Redondeamos las esquinas. */
+
+    padding: 35px 20px;
+    /* Agregamos espacio interno. */
+
+    text-align: center;
+    /* Centramos el contenido. */
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    /* Agregamos una sombra suave. */
+
+}
+
+.mode-buttons {
+    /* Contenedor de los botones de modo. */
+
+    display: flex;
+    /* Colocamos los botones uno junto al otro. */
+
+    justify-content: center;
+    /* Centramos los botones horizontalmente. */
+
+    gap: 8px;
+    /* Dejamos espacio entre botones. */
+
+    flex-wrap: wrap;
+    /* Permitimos que bajen de línea en pantallas pequeñas. */
+
+}
+
+.mode-button {
+    /* Estilos generales de los botones de modo. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: transparent;
+    /* Hacemos transparente el fondo. */
+
+    color: white;
+    /* Texto blanco. */
+
+    padding: 10px 14px;
+    /* Espacio interno. */
+
+    border-radius: 6px;
+    /* Redondeamos las esquinas. */
+
+    cursor: pointer;
+    /* Indicamos que el botón es interactivo. */
+
+    font-weight: bold;
+    /* Hacemos el texto más grueso. */
+
+}
+
+.mode-button.active {
+    /* Estilos del botón que representa el modo actual. */
+
+    background: rgba(0, 0, 0, 0.15);
+    /* Agregamos un fondo ligeramente oscuro. */
+
+}
+
+.timer {
+    /* Estilos del número del temporizador. */
+
+    font-size: clamp(80px, 18vw, 150px);
+    /* El tamaño se adapta al dispositivo. */
+
+    font-weight: bold;
+    /* Hacemos los números gruesos. */
+
+    line-height: 1;
+    /* Reducimos el espacio vertical alrededor del texto. */
+
+    margin: 35px 0 10px;
+    /* Dejamos espacio alrededor del temporizador. */
+
+    font-variant-numeric: tabular-nums;
+    /* Hace que los números tengan un ancho visual uniforme. */
+
+}
+
+.status {
+    /* Texto que indica el modo actual. */
+
+    margin: 0 0 25px;
+    /* Agregamos espacio inferior. */
+
+    opacity: 0.9;
+    /* Lo hacemos ligeramente menos intenso. */
+
+}
+
+.start-button {
+    /* Botón principal. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: white;
+    /* Fondo blanco. */
+
+    color: #ba4949;
+    /* Texto del mismo color que el fondo principal. */
+
+    font-size: 20px;
+    /* Tamaño del texto. */
+
+    font-weight: bold;
+    /* Texto grueso. */
+
+    padding: 14px 45px;
+    /* Hacemos el botón grande y fácil de pulsar. */
+
+    border-radius: 6px;
+    /* Redondeamos las esquinas. */
+
+    cursor: pointer;
+    /* Indicamos que es clickeable. */
+
+    box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+    /* Creamos una pequeña sombra. */
+
+}
+
+.start-button:active {
+    /* Estilos mientras el usuario mantiene presionado el botón. */
+
+    transform: translateY(2px);
+    /* Movemos ligeramente el botón hacia abajo. */
+
+}
+
+.reset-button {
+    /* Botón de reinicio. */
+
+    display: block;
+    /* Convertimos el botón en elemento de bloque. */
+
+    margin: 18px auto 0;
+    /* Lo centramos y agregamos espacio superior. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: transparent;
+    /* Fondo transparente. */
+
+    color: white;
+    /* Texto blanco. */
+
+    cursor: pointer;
+    /* Indicamos que es interactivo. */
+
+    text-decoration: underline;
+    /* Subrayamos el texto. */
+
+}
+
+.tasks-section {
+    /* Sección de tareas. */
+
+    margin-top: 30px;
+    /* Separamos las tareas del temporizador. */
+
+}
+
+.section-header {
+    /* Cabecera de tareas. */
+
+    display: flex;
+    /* Usamos Flexbox. */
+
+    justify-content: space-between;
+    /* Separamos título y contador. */
+
+    align-items: center;
+    /* Los alineamos verticalmente. */
+
+    border-bottom: 2px solid #ddd;
+    /* Agregamos una línea debajo. */
+
+    padding-bottom: 10px;
+    /* Dejamos espacio antes de la línea. */
+
+}
+
+.section-header h2 {
+    /* Título "Tareas". */
+
+    margin: 0;
+    /* Eliminamos margen predeterminado. */
+
+}
+
+#pomodoroCount {
+    /* Contador de Pomodoros. */
+
+    color: #777;
+    /* Utilizamos un gris secundario. */
+
+}
+
+.task-form {
+    /* Formulario de tareas. */
+
+    display: flex;
+    /* Colocamos input y botón horizontalmente. */
+
+    gap: 8px;
+    /* Dejamos espacio entre ambos elementos. */
+
+    margin-top: 15px;
+    /* Separamos el formulario de la cabecera. */
+
+}
+
+.task-form input {
+    /* Campo donde escribiremos la tarea. */
+
+    flex: 1;
+    /* Permitimos que el input ocupe todo el espacio disponible. */
+
+    padding: 12px;
+    /* Espacio interno. */
+
+    border: 1px solid #ddd;
+    /* Borde gris claro. */
+
+    border-radius: 6px;
+    /* Esquinas redondeadas. */
+
+    font-size: 16px;
+    /* Tamaño cómodo para escribir. */
+
+}
+
+.task-form button {
+    /* Botón agregar. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: #ba4949;
+    /* Utilizamos el color principal. */
+
+    color: white;
+    /* Texto blanco. */
+
+    padding: 0 20px;
+    /* Espacio horizontal. */
+
+    border-radius: 6px;
+    /* Esquinas redondeadas. */
+
+    cursor: pointer;
+    /* Indicamos que es interactivo. */
+
+}
+
+.task-list {
+    /* Lista donde aparecerán las tareas. */
+
+    list-style: none;
+    /* Eliminamos las viñetas predeterminadas. */
+
+    padding: 0;
+    /* Eliminamos espacio interno. */
+
+    margin: 15px 0 0;
+    /* Dejamos espacio arriba. */
+
+}
+
+.task {
+    /* Cada tarea individual. */
+
+    display: flex;
+    /* Utilizamos Flexbox. */
+
+    align-items: center;
+    /* Centramos verticalmente sus elementos. */
+
+    gap: 12px;
+    /* Dejamos espacio entre checkbox y texto. */
+
+    background: white;
+    /* Fondo blanco. */
+
+    border: 1px solid #ddd;
+    /* Borde gris claro. */
+
+    border-radius: 6px;
+    /* Esquinas redondeadas. */
+
+    padding: 14px;
+    /* Espacio interno. */
+
+    margin-bottom: 8px;
+    /* Espacio entre tareas. */
+
+}
+
+.task span {
+    /* Texto de la tarea. */
+
+    flex: 1;
+    /* Hace que ocupe el espacio disponible. */
+
+}
+
+.task.completed span {
+    /* Texto de una tarea terminada. */
+
+    text-decoration: line-through;
+    /* Tachamos el texto. */
+
+    color: #999;
+    /* Lo mostramos con un color más apagado. */
+
+}
+
+.task-delete {
+    /* Botón para eliminar una tarea. */
+
+    border: none;
+    /* Eliminamos el borde. */
+
+    background: transparent;
+    /* Fondo transparente. */
+
+    color: #999;
+    /* Color gris. */
+
+    cursor: pointer;
+    /* Indicamos que se puede pulsar. */
+
+}
+
+@media (max-width: 500px) {
+    /* Estos estilos se aplican en pantallas pequeñas. */
+
+    .task-form {
+        /* Modificamos el formulario en móviles. */
+
+        flex-direction: column;
+        /* Colocamos input y botón verticalmente. */
+
+    }
+
+    .task-form button {
+        /* Botón de agregar en móviles. */
+
+        padding: 12px;
+        /* Le damos altura suficiente para tocarlo cómodamente. */
+
+    }
+}

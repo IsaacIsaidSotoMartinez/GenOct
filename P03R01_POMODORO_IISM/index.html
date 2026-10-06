@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- Le dice al navegador que estamos utilizando HTML5. -->
+
+<html lang="es">
+<!-- Comenzamos el documento HTML y especificamos que el idioma es español. -->
+
+<head>
+    <!-- Aquí colocamos información que el navegador necesita pero que no vemos directamente. -->
+
+    <meta charset="UTF-8">
+    <!-- Permite utilizar correctamente caracteres como á, é, í, ó, ú y ñ. -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Hace que nuestra página se adapte correctamente a teléfonos, tablets y computadoras. -->
+
+    <title>Pomodoro</title>
+    <!-- Este texto aparece en la pestaña del navegador. -->
+
+    <link rel="stylesheet" href="CSS/styles.css">
+    <!-- Conectamos nuestro archivo HTML con nuestro archivo CSS. -->
+
+</head>
+<!-- Terminamos la sección head. -->
+
+<body>
+    <!-- Aquí comienza todo lo que el usuario podrá ver. -->
+
+    <main class="app">
+        <!-- main representa el contenido principal de nuestra aplicación. -->
+
+        <header class="header">
+            <!-- Creamos la cabecera de nuestra aplicación. -->
+
+            <h1>Pomodoro</h1>
+            <!-- Título principal de nuestra aplicación. -->
+
+            <button id="settingsButton" class="icon-button">
+            </button>
+            <!-- Botón que posteriormente utilizaremos para abrir la configuración. -->
+
+        </header>
+        <!-- Terminamos la cabecera. -->
+
+        <section class="timer-card">
+            <!-- Esta sección contiene nuestro temporizador. -->
+
+            <div class="mode-buttons">
+                <!-- Contenedor de los botones que permiten cambiar de modo. -->
+
+                <button id="pomodoroButton" class="mode-button active">
+                    Pomodoro
+                </button>
+                <!-- Botón para seleccionar el modo Pomodoro. -->
+
+                <button id="shortBreakButton" class="mode-button">
+                    Descanso corto
+                </button>
+                <!-- Botón para seleccionar el descanso corto. -->
+
+            </div>
+            <!-- Terminamos los botones de modo. -->
+
+            <div id="timer" class="timer">
+                25:00
+            </div>
+            <!-- Aquí JavaScript modificará el tiempo mostrado en pantalla. -->
+
+            <p id="status" class="status">
+                Tiempo de concentración
+            </p>
+            <!-- Texto que indica qué estamos haciendo actualmente. -->
+
+            <button id="startButton" class="start-button">
+                INICIAR
+            </button>
+            <!-- Botón principal para iniciar o pausar el temporizador. -->
+
+            <button id="resetButton" class="reset-button">
+                Reiniciar
+            </button>
+            <!-- Botón que devuelve el temporizador a su duración inicial. -->
+
+        </section>
+        <!-- Terminamos la tarjeta del temporizador. -->
+
+<!-- ============================================ -->
+<!-- SECCIÓN DE TAREAS                            -->
+<!-- ============================================ -->
+
+<section class="tasks-section">
+    <!-- Contenedor principal de todas nuestras tareas. -->
+
+
+    <!-- ======================================== -->
+    <!-- CABECERA                                 -->
+    <!-- ======================================== -->
+
+    <div class="section-header">
+        <!-- Contiene el título y el contador general. -->
+
+        <h2 id="tasksTitle">
+            Tareas
+        </h2>
+        <!-- JavaScript cambiará este título dependiendo del modo. -->
+
+      <span id="pomodoroCount">Pomos: 0</span>
+        <!-- Muestra la cantidad total de Pomodoros terminados. -->
+
+    </div>
+
+
+    <!-- ======================================== -->
+    <!-- FORMULARIO                               -->
+    <!-- ======================================== -->
+
+    <form id="taskForm" class="task-form">
+        <!-- Formulario utilizado para agregar una nueva tarea. -->
+
+        <input
+            id="taskInput"
+            type="text"
+            placeholder="¿En qué vas a trabajar?"
+            autocomplete="off"
+        >
+        <!-- Campo donde escribiremos nuestra tarea o actividad de descanso. -->
+
+        <button type="submit">
+            Agregar
+        </button>
+        <!-- Botón que agrega la tarea. -->
+
+    </form>
+
+
+    <!-- ======================================== -->
+    <!-- LISTA DE TAREAS                           -->
+    <!-- ======================================== -->
+
+    <ul id="taskList" class="task-list">
+        <!-- JavaScript colocará aquí las tareas. -->
+    </ul>
+
+</section>
+        <!-- Terminamos la sección de tareas. -->
+
+    </main>
+    <!-- Terminamos el contenido principal de nuestra aplicación. -->
+
+    <script src="JS/script.js"></script>
+    <!-- Conectamos nuestro archivo JavaScript con la página. -->
+
+</body>
+<!-- Terminamos el contenido visible del documento. -->
+
+</html>
+<!-- Terminamos el documento HTML. -->
